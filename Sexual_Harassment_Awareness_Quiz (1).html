@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sexual Harassment Awareness Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin: 10px 0;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Sexual Harassment Awareness Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <h3>1. What constitutes sexual harassment in the workplace?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q1" value="A"> A) A friendly compliment</label>
+                    <label><input type="radio" name="q1" value="B"> B) Unwanted physical contact</label>
+                    <label><input type="radio" name="q1" value="C"> C) A casual joke</label>
+                    <label><input type="radio" name="q1" value="D"> D) Constructive feedback</label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>2. How should you respond if you witness sexual harassment?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q2" value="A"> A) Ignore it</label>
+                    <label><input type="radio" name="q2" value="B"> B) Report it to the appropriate authority</label>
+                    <label><input type="radio" name="q2" value="C"> C) Confront the harasser publicly</label>
+                    <label><input type="radio" name="q2" value="D"> D) Tell the victim to handle it</label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>3. What is a preventative measure against sexual harassment?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q3" value="A"> A) Ignoring inappropriate behavior</label>
+                    <label><input type="radio" name="q3" value="B"> B) Mandatory training on harassment prevention</label>
+                    <label><input type="radio" name="q3" value="C"> C) Allowing informal warnings</label>
+                    <label><input type="radio" name="q3" value="D"> D) None of the above</label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>4. Which behavior is likely to be considered sexual harassment?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q4" value="A"> A) Complimenting someone’s skills</label>
+                    <label><input type="radio" name="q4" value="B"> B) Making sexual jokes around colleagues</label>
+                    <label><input type="radio" name="q4" value="C"> C) Asking about someone’s weekend plans</label>
+                    <label><input type="radio" name="q4" value="D"> D) Sharing industry news</label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>5. What can be a consequence of unaddressed sexual harassment in the workplace?</h3>
+                <div class="answers">
+                    <label><input type="radio" name="q5" value="A"> A) Improved employee morale</label>
+                    <label><input type="radio" name="q5" value="B"> B) Lower employee morale</label>
+                    <label><input type="radio" name="q5" value="C"> C) Increased productivity</label>
+                    <label><input type="radio" name="q5" value="D"> D) None of the above</label>
+                </div>
+            </div>
+            <button type="button" onclick="checkAnswers()">Submit</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = ['B', 'B', 'B', 'B', 'B'];
+            const form = document.getElementById('quiz-form');
+            let score = 0;
+
+            correctAnswers.forEach((answer, index) => {
+                const question = form[`q${index + 1}`];
+                if (question.value === answer) {
+                    score++;
+                }
+            });
+
+            const result = document.getElementById('result');
+            result.innerHTML = `You scored ${score} out of ${correctAnswers.length}!`;
+        }
+    </script>
+</body>
+</html>
